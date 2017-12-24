@@ -1,8 +1,8 @@
-"# PicartoAlertBoxApp" 
+# PicartoAlertBoxApp" 
 
 A Desktop app that lets you make your own alert boxes for picarto followers and subscribers.
 
-# Pre-Alpha Version
+## Pre-Alpha Version
 
 The file testMain.py prints new followers and subscribers on the comand line.
 
