@@ -4,12 +4,14 @@ A Desktop app that lets you make your own alert boxes for picarto followers and 
 
 # Pre-Alpha Version
 
-The file testMain.py prints new followers and subscribers on the comand line. To use it you must first go to https://docs.picarto.tv/api/ and authorize the Picarto.TV API Documentation to see your public and private data.
+The file testMain.py prints new followers and subscribers on the comand line.
 
 To use this you must have the following things installed:
 -Python 2.7.11
 -pygame (the python module)
 -Requests (the python module)
+
+First go to https://docs.picarto.tv/api/ and authorize the Picarto.TV API Documentation to see your public and private data.
 
 After that go back to https://docs.picarto.tv/api/ and make a query of whatever you want, like \categories, where it says curl should be something like this:
 
