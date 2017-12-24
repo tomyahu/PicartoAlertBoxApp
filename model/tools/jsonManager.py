@@ -1,6 +1,7 @@
 import json
 import requests
 
+Bearer = ""
 
 def get_from_url(url):
     """
@@ -9,7 +10,7 @@ def get_from_url(url):
     :return: a dictionary with the data
     """
     # type: str -> dict
-    headers = {"Accept": "application/json", "Authorization": "Bearer RMSLIGfFhkfxS1d50fwz1psx"}
+    headers = {"Accept": "application/json", "Authorization": "Bearer " + Bearer}
     json_obj = requests.get(url=url, headers=headers)
     return json_obj.json()
 
