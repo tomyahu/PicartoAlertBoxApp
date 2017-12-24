@@ -7,13 +7,13 @@ A Desktop app that lets you make your own alert boxes for picarto followers and 
 The file testMain.py prints new followers and subscribers on the comand line.
 
 To use this you must have the following things installed:
-* Python 2.7.11
+* Python 2.7.11 at least (I guess, I havent tried with older versions)
 * pygame (the python module)
 * Requests (the python module)
 
 First go to https://docs.picarto.tv/api/ and authorize the Picarto.TV API Documentation to see your public and private data.
 
-After that go back to https://docs.picarto.tv/api/ and make a query of whatever you want, like \categories, where it says curl should be something like this:
+After that go back to https://docs.picarto.tv/api/ and make a query of whatever you want, like \categories. Where it says curl should be something like this:
 
 ```
 curl -X GET --header 'Accept: application/json' --header 'Authorization: Bearer AAAAAAAAAAAAAAAAAAAAAAAA' 'https://api.picarto.tv/v1/categories'
@@ -25,4 +25,4 @@ Then go to model\tools, open jsonManager.py as a text file and in the 4th line a
 Bearer = "AAAAAAAAAAAAAAAAAAAAAAAA"
 ```
 
-Then just run testMain.py with the command: (```py -2 testMain.py```) because we are using python 2 here, and it should work.
+Then just run testMain.py with the command: ```py -2 testMain.py``` (that means we are running the file using python 2). Then if you have a new follower or subscriber, the program will print it in the command line :D
