@@ -1,7 +1,7 @@
 import abc
 
 
-class AbstractTextAlertBox(metaclass=abc.ABCMeta):
+class AbstractTextAlertBox:
 
     def __init__(self):
         """
