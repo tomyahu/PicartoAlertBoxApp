@@ -1,6 +1,6 @@
 from input.input_manager import InputManager
 from notification_manager import NotificationManager
-from view.abstract_view import AbstractView
+from view.app_views.abstract_view import AbstractAppView
 
 
 class AppController:
@@ -10,7 +10,7 @@ class AppController:
         Creates a new instance of an App controller
         :param a_view:
         """
-        # type: AbstractView -> None
+        # type: AbstractAppView -> None
         self.input_managers = list()
         self.notification_manager = NotificationManager()
         self.view = a_view
