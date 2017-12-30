@@ -1,13 +1,13 @@
 from controller.app_controller import AppController
-from view.console_view import ConsoleView
-from view.alert_boxes.console import ConsoleAlertBox
+from view.app_views.console_view import ConsoleAppView
+from view.canvas_objects.console import ConsoleAlertBox
 
 follower_alert = ConsoleAlertBox()
 
 subscriber_alert = ConsoleAlertBox()
 subscriber_alert.set_suffix_text(' just subscribed!')
 
-view = ConsoleView(follower_alert, subscriber_alert)
+view = ConsoleAppView(follower_alert, subscriber_alert)
 
 ctrl = AppController(view)
 
