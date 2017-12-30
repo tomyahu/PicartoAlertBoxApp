@@ -1,10 +1,10 @@
-from abstract_view import AbstractView
+from abstract_view import AbstractAppView
 
 
-class ConsoleView(AbstractView):
+class ConsoleAppView(AbstractAppView):
 
     def __init__(self, follower_alert, subscriber_alert):
-        AbstractView.__init__(self, follower_alert, subscriber_alert)
+        AbstractAppView.__init__(self, follower_alert, subscriber_alert)
 
     def show_new_follower(self, new_follower):
         self.follower_alert_box.show(new_follower.get_channel())

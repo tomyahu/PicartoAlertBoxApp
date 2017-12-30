@@ -1,8 +1,8 @@
 import abc
-from view.alert_boxes.abstract_text_alert_box import AbstractTextAlertBox
+from view.canvas_objects.abstract_tkinter_canvas_object import AbstractTkinterCanvasObject
 
 
-class AbstractView(metaclass=abc.ABCMeta):
+class AbstractAppView(metaclass=abc.ABCMeta):
 
     def __init__(self, follower_alert, subscriber_alert):
         """
@@ -10,7 +10,7 @@ class AbstractView(metaclass=abc.ABCMeta):
         :param follower_alert: The alert box which is going to display when a new user follows
         :param subscriber_alert: The alert box which is going to display when a new user subscribes
         """
-        # type: (AbstractTextAlertBox, AbstractTextAlertBox) -> None
+        # type: (AbstractTkinterCanvasObject, AbstractTkinterCanvasObject) -> None
         self.follower_alert_box = follower_alert
         self.subscriber_alert_box = subscriber_alert
 
