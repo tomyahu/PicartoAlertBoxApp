@@ -1,4 +1,4 @@
-from abstract_view import AbstractAppView
+from view.app_views.abstract_view import AbstractAppView
 
 
 class ConsoleAppView(AbstractAppView):
