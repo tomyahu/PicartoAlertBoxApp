@@ -1,5 +1,4 @@
 from view.console_view.console_alerts import ConsoleAlerts
-
 from controller.app_controller import AppController
 from view.console_view.console_view import ConsoleAppView
 

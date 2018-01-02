@@ -8,7 +8,7 @@ pygame.init()
 mouse = pygame.mouse
 
 
-class InputManager(metaclass=abc.ABCMeta):
+class InputManager():
 
     def __init__(self):
         pass

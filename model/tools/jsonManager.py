@@ -1,7 +1,7 @@
 import json
 import requests
 
-Bearer = ""
+Bearer = "xEApU7lUZNPACnO4Z2kHSdIh"
 
 def get_from_url(url):
     """

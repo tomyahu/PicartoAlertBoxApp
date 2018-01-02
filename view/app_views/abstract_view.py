@@ -1,8 +1,8 @@
 import abc
-from view.canvas_objects.abstract_tkinter_canvas_object import AbstractTkinterCanvasObject
+from view.configuration_views.components.canvas_objects.abstract_tkinter_canvas_object import AbstractTkinterCanvasObject
 
 
-class AbstractAppView(metaclass=abc.ABCMeta):
+class AbstractAppView():
 
     def __init__(self, follower_alert, subscriber_alert):
         """
