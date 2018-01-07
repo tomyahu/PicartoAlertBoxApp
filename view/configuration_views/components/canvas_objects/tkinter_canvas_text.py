@@ -1,6 +1,7 @@
 import Tkinter as Tk
 import tkFont
 from abstract_tkinter_canvas_object import AbstractTkinterCanvasObject
+from model.components.text import Text
 
 
 class TkinterCanvasText(AbstractTkinterCanvasObject):
@@ -12,16 +13,19 @@ class TkinterCanvasText(AbstractTkinterCanvasObject):
         :param canvas: The canvas of the window
         """
         # type: (tkFont.Font, Tk.Canvas) -> None
-        AbstractTkinterCanvasObject.__init__(self, canvas)
-        self.text = '(name) just followed!'
+        AbstractTkinterCanvasObject.__init__(self, canvas, Text())
         self.font = font
-        self.canvas_id = self.canvas.create_text(self.x, self.y, text=self.text, font=font)
+        self.tags = {}
+        self.canvas_id = self.canvas.create_text(self.component.get_pos()[0],
+                                                 self.component.get_pos()[1],
+                                                 text=self.component.get_text(self.tags),
+                                                 font=self.font)
 
-    def show(self, name):
-        self.canvas.delete(self.canvas_id)
-        complete_text = self.set_tag(self.text, 'name', name)
-        self.canvas_id = self.canvas.create_text(self.x,
-                                                 self.y, text=complete_text, font=self.font)
+    def show(self):
+        self.canvas.itemconfigure(self.canvas_id, text=self.component.get_text(self.tags))
+        self.canvas.itemconfigure(self.canvas_id, font=self.font)
+        self.canvas.coords(self.canvas_id, self.component.get_pos()[0], self.component.get_pos()[1])
+        print(self.canvas_id)
 
     def set_font_size(self, f_size):
         font = self.font.split(' ')
@@ -37,12 +41,11 @@ class TkinterCanvasText(AbstractTkinterCanvasObject):
     def get_canvas_component_id(self):
         return self.canvas_id
 
-    def set_tag(self, text, tag, tag_value):
-        text_parts = text.split('('+ tag +')')
-        new_text = text_parts[0]
+    def add_tag(self, tag, tag_value):
+        self.tags[tag] = tag_value
 
-        for i in range(1, len(text_parts)):
-            new_text += tag_value
-            new_text += text_parts[i]
+    def remove_tag(self, tag):
+        del self.tags[tag]
 
-        return new_text
+    def reset_tags(self):
+        self.tags = {}
