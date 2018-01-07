@@ -55,6 +55,9 @@ class Observable:
 
 class Observer:
 
+    def __init__(self):
+        pass
+
     @abc.abstractmethod
     def update(self, observable, info):
         # type: (Observable, object) -> object

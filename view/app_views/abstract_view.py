@@ -1,16 +1,12 @@
 import abc
 from view.configuration_views.components.canvas_objects.abstract_tkinter_canvas_object import AbstractTkinterCanvasObject
+from model.observer_pattern.thread_observe import ThreadObserver
 
 
-class AbstractAppView():
+class AbstractAppView(ThreadObserver):
 
     def __init__(self, follower_alert, subscriber_alert):
-        """
-        Creates a new instance of the class AbstractView
-        :param follower_alert: The alert box which is going to display when a new user follows
-        :param subscriber_alert: The alert box which is going to display when a new user subscribes
-        """
-        # type: (AbstractTkinterCanvasObject, AbstractTkinterCanvasObject) -> None
+        ThreadObserver.__init__(self)
         self.follower_alert_box = follower_alert
         self.subscriber_alert_box = subscriber_alert
 
