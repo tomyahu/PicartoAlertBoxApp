@@ -21,7 +21,9 @@ class Layer:
 
     def move_object(self):
         self.obj_options.move_object()
-        self.root
+
+    def update(self):
+        self.obj_options.update()
 
     def get_name(self):
         return self.name

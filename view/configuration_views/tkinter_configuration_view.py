@@ -11,6 +11,7 @@ class TkinterConfigurationView:
         self.root = root
         self.canvas = Tk.Canvas(self.root, width=canvas_width, height=canvas_height)
         self.layer_list = Tk.Listbox(self.root)
+        self.selected_layer = -1;
         self.layers = []
 
     def show(self):
@@ -23,6 +24,7 @@ class TkinterConfigurationView:
         self.show_add_layer_buttons()
         self.show_current_layer_options()
         self.canvas.bind("<B1-Motion>", self.move_current_layer_object)
+        self.update_components()
 
     def show_add_layer_buttons(self):
 
@@ -32,11 +34,11 @@ class TkinterConfigurationView:
 
         button_image = Tk.Button(self.root,
                                  text="Add Image",
-                                 command=add_image_layer)
+                                 command=lambda:add_image_layer(self))
 
         button_gif = Tk.Button(self.root,
                                text="Add Gif",
-                               command=add_image_layer)
+                               command=lambda:add_gif_layer(self))
 
         button_text.grid(row=2, column=1, sticky=Tk.S, ipadx=30)
         button_image.grid(row=3, column=1, sticky=Tk.S, ipadx=24)
@@ -64,6 +66,15 @@ class TkinterConfigurationView:
         layer_pos = self.layer_list.curselection()
         self.layers[layer_pos[0]].rename(new_name)
         self.layer_list.insert(layer_pos, new_name)
+
+    def update_components(self):
+
+        if(len(self.layer_list.curselection()) > 0):
+            layer_pos = self.layer_list.curselection()[0]
+            self.layers[layer_pos].update()
+            self.layers[layer_pos].select()
+
+        self.root.after(10, lambda: self.update_components())
 
 def add_image_layer(configuration_view):
     pass

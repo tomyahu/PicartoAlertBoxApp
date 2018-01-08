@@ -25,7 +25,6 @@ class TkinterCanvasText(AbstractTkinterCanvasObject):
         self.canvas.itemconfigure(self.canvas_id, text=self.component.get_text(self.tags))
         self.canvas.itemconfigure(self.canvas_id, font=self.font)
         self.canvas.coords(self.canvas_id, self.component.get_pos()[0], self.component.get_pos()[1])
-        print(self.canvas_id)
 
     def set_font_size(self, f_size):
         font = self.font.split(' ')

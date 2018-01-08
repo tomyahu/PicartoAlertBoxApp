@@ -17,7 +17,6 @@ class TkinterAbstractObjectOptions:
 
     def update(self):
         self.canvas_obj.show()
-        self.root.after(10, lambda:self.update())
 
     @abc.abstractmethod
     def show(self):
