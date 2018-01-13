@@ -1,7 +1,7 @@
 import Tkinter as Tk
 import tkFont
 from abstract_tkinter_canvas_object import AbstractTkinterCanvasObject
-from model.components.text import Text
+from model.components.text_object import TextObject
 
 
 class TkinterCanvasText(AbstractTkinterCanvasObject):
@@ -13,7 +13,7 @@ class TkinterCanvasText(AbstractTkinterCanvasObject):
         :param canvas: The canvas of the window
         """
         # type: (tkFont.Font, Tk.Canvas) -> None
-        AbstractTkinterCanvasObject.__init__(self, canvas, Text())
+        AbstractTkinterCanvasObject.__init__(self, canvas, TextObject())
         self.font = font
         self.tags = {}
         self.canvas_id = self.canvas.create_text(self.component.get_pos()[0],
@@ -25,6 +25,12 @@ class TkinterCanvasText(AbstractTkinterCanvasObject):
         self.canvas.itemconfigure(self.canvas_id, text=self.component.get_text(self.tags))
         self.canvas.itemconfigure(self.canvas_id, font=self.font)
         self.canvas.coords(self.canvas_id, self.component.get_pos()[0], self.component.get_pos()[1])
+
+    def set_font(self, new_font):
+        self.font = new_font
+
+    def get_font(self):
+        return self.font
 
     def set_font_size(self, f_size):
         font = self.font.split(' ')

@@ -1,7 +1,7 @@
 import Tkinter as Tk
-import tkFont
+from PIL import Image, ImageTk
 from abstract_tkinter_canvas_object import AbstractTkinterCanvasObject
-from model.components.image import Image
+from model.components.image_object import ImageObject
 
 
 class TkinterCanvasImage(AbstractTkinterCanvasObject):
@@ -13,8 +13,9 @@ class TkinterCanvasImage(AbstractTkinterCanvasObject):
         :param an_image_path: The path of the image
         """
         # type: (Tk.Canvas, str) -> None
-        AbstractTkinterCanvasObject.__init__(self, canvas, Image(an_image_path))
-        self.image = Tk.PhotoImage(file=an_image_path)
+        AbstractTkinterCanvasObject.__init__(self, canvas, ImageObject(an_image_path))
+        image_file = Image.open(an_image_path)
+        self.image = ImageTk.PhotoImage(image_file)
 
         self.canvas_id = self.canvas.create_image(self.component.get_pos()[0], self.component.get_pos()[1], anchor=Tk.CENTER, image = self.image)
 

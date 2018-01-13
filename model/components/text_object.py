@@ -1,7 +1,7 @@
 from .abstract_object import AbstractObject
 
 
-class Text(AbstractObject):
+class TextObject(AbstractObject):
     """
     An object that represents Text
     """

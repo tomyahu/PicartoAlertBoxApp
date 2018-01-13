@@ -18,6 +18,7 @@ class Layer:
 
     def show_config_view(self):
         self.obj_options.show()
+        self.obj_options.grid_all()
 
     def move_object(self):
         self.obj_options.move_object()

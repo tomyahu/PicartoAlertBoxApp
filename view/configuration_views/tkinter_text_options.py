@@ -11,5 +11,16 @@ class TkinterTextOptions(TkinterAbstractObjectOptions):
         TkinterAbstractObjectOptions.__init__(self, root, canvas, TkinterCanvasText(helv, canvas))
 
     def show(self):
-        Tk.Label(self.root, text="X: " + str(self.canvas_obj.get_pos()[0])).grid(row=5, column=0)
-        Tk.Label(self.root, text="Y: " + str(self.canvas_obj.get_pos()[1])).grid(row=6, column=0)
+        self.update_position_options()
+
+    def set_font(self, new_font):
+        self.canvas_obj.set_font(new_font)
+
+    def get_font(self):
+        return self.canvas_obj.get_font()
+
+    def set_font_size(self, new_size):
+        self.canvas_obj.set_font_size(new_size)
+
+    def get_font_size(self):
+        return self.canvas_obj.get_font_size()

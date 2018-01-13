@@ -1,16 +1,13 @@
 import Tkinter as Tk
 import tkFont
 from abstract_tkinter_canvas_object import AbstractTkinterCanvasObject
-from model.components.gif import Gif
-
-
-fps = 24
+from model.components.gif_object import GifObject
 
 
 class TkinterCanvasGif(AbstractTkinterCanvasObject):
 
     def __init__(self, canvas, a_gif_path):
-        AbstractTkinterCanvasObject.__init__(self, canvas, Gif(a_gif_path))
+        AbstractTkinterCanvasObject.__init__(self, canvas, GifObject(a_gif_path))
 
         self.im_counter = 0
         self.frame_num = self.get_gif_frames() - 1
@@ -30,8 +27,8 @@ class TkinterCanvasGif(AbstractTkinterCanvasObject):
         self.canvas.coords(self.canvas_id, self.component.get_pos()[0], self.component.get_pos()[1])
 
     def update_gif_frame(self):
-        self.time = (self.time + fps) % 100
-        if self.time < fps:
+        self.time = (self.time + self.component.get_fps()) % 100
+        if self.time < self.component.get_fps():
             self.im_counter = (self.im_counter + 1) % self.frame_num
 
     def get_gif_frames(self):

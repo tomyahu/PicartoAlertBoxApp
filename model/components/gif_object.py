@@ -2,7 +2,7 @@ from abstract_object import AbstractObject
 import Tkinter as Tk
 
 
-class Gif(AbstractObject):
+class GifObject(AbstractObject):
 
     def __init__(self, path):
         AbstractObject.__init__(self)
